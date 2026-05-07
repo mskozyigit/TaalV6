@@ -16,18 +16,18 @@
             color: #333;
         }
         #loading-screen {
-            font-size: 2em;
+            font-size: 6em; /* 3 kat daha büyük */
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         .loading-bar-container {
-            width: 80%;
+            width: 90%; /* Daha geniş yükleme çubuğu */
             background-color: #ddd;
             border-radius: 5px;
-            height: 20px;
-            margin-top: 20px;
+            height: 30px; /* Daha kalın yükleme çubuğu */
+            margin-top: 40px; /* Daha fazla boşluk */
             overflow: hidden;
         }
         .loading-bar {
@@ -47,27 +47,28 @@
         }
         .level-button {
             display: block;
-            margin: 15px auto;
-            padding: 15px 30px;
-            width: 250px; /* Standart genişlik */
-            height: 70px; /* Standart yükseklik */
-            font-size: 1.5em;
+            margin: 20px auto; /* Daha fazla boşluk */
+            padding: 30px 60px; /* 2 kat daha büyük padding */
+            width: 500px; /* 2 kat daha büyük genişlik */
+            height: 140px; /* 2 kat daha büyük yükseklik */
+            font-size: 3em; /* 2 kat daha büyük font */
+            font-weight: bold; /* Kalın yazı */
             cursor: pointer;
             background-color: #007bff;
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 15px; /* Daha yuvarlak köşeler */
             text-decoration: none;
-            box-shadow: 0 5px 0 #0056b3; /* 3D efekti için gölge */
+            box-shadow: 0 8px 0 #0056b3; /* Daha belirgin 3D efekti */
             transition: all 0.1s ease;
         }
         .level-button:hover {
             background-color: #0056b3;
-            transform: translateY(2px);
-            box-shadow: 0 3px 0 #004085;
+            transform: translateY(4px); /* Daha belirgin hareket */
+            box-shadow: 0 4px 0 #004085;
         }
         .level-button:active {
-            transform: translateY(5px);
+            transform: translateY(8px);
             box-shadow: 0 0 0 #004085;
         }
     </style>

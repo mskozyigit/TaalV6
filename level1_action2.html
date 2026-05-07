@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner Niveau - Actie 2</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+        .home-button {
+            font-size: 3em;
+            text-decoration: none;
+            color: #5cb85c;
+            margin-right: 20px;
+            line-height: 1;
+            padding: 5px;
+            border-radius: 10px;
+            background-color: #e0ffe0;
+            box-shadow: 0 3px 0 #4cae4c;
+            transition: all 0.1s ease;
+        }
+        .home-button:hover {
+            transform: translateY(1px);
+            box-shadow: 0 2px 0 #4cae4c;
+        }
+        .home-button:active {
+            transform: translateY(3px);
+            box-shadow: 0 0 0 #4cae4c;
+        }
+        .back-button {
+            padding: 10px 15px;
+            font-size: 1.5em;
+            cursor: pointer;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0 3px 0 #545b62;
+            transition: all 0.1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .back-button:hover {
+            background-color: #5a6268;
+            transform: translateY(1px);
+            box-shadow: 0 2px 0 #494f54;
+        }
+        .back-button:active {
+            transform: translateY(3px);
+            box-shadow: 0 0 0 #494f54;
+        }
+        h1 {
+            color: #5cb85c;
+        }
+        .question-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+        .question-text {
+            font-size: 2em;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .answer-options button {
+            display: block;
+            width: 80%;
+            margin: 15px auto;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            color: #333;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+        .answer-options button:hover {
+            background-color: #e0e0e0;
+            border-color: #999;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .correct {
+            color: #28a745;
+        }
+        .incorrect {
+            color: #dc3545;
+        }
+        .progress-info {
+            margin-top: 30px;
+            font-size: 1.2em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="nav-buttons">
+            <a href="index.html" class="home-button">🏠</a>
+            <button onclick="history.back()" class="back-button">&#8592;</button>
+        </div>
+        <h1>Beginner Niveau - Actie 2</h1>
+    </div>
+
+    <div class="question-container">
+        <div class="question-text">Wat is de Nederlandse vertaling van "goodbye"?</div>
+        <div class="answer-options">
+            <button onclick="checkAnswer('tot ziens', this)">tot ziens</button>
+            <button onclick="checkAnswer('hallo', this)">hallo</button>
+            <button onclick="checkAnswer('bedankt', this)">bedankt</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+        <div class="progress-info">Soru: <span id="current-question">1</span> / <span id="total-questions">5</span> | Yanlış: <span id="incorrect-count">0</span></div>
+    </div>
+
+    <script>
+        let incorrectCount = 0;
+        let currentQuestionIndex = 0;
+        const questions = [
+            { question: "Wat is de Nederlandse vertaling van \"goodbye\"?", answers: ["tot ziens", "hallo", "bedankt"], correct: "tot ziens" },
+            { question: "Hoe zeg je \"please\" in het Nederlands?", answers: ["dank je wel", "alsjeblieft", "graag gedaan"], correct: "alsjeblieft" },
+            { question: "Wat betekent \"nee\"?", answers: ["ja", "misschien", "nee"], correct: "nee" },
+            { question: "Wat is het meervoud van \"stoel\"?", answers: ["stoelen", "stoels", "stoeltjes"], correct: "stoelen" },
+            { question: "Welk lidwoord hoort bij \"tafel\"?", answers: ["de", "het", "een"], correct: "de" }
+        ];
+
+        function loadQuestion() {
+            if (currentQuestionIndex < questions.length) {
+                const q = questions[currentQuestionIndex];
+                document.querySelector(".question-text").textContent = q.question;
+                const answerOptionsDiv = document.querySelector(".answer-options");
+                answerOptionsDiv.innerHTML = '';
+                q.answers.forEach(answer => {
+                    const button = document.createElement("button");
+                    button.textContent = answer;
+                    button.onclick = () => checkAnswer(answer, button);
+                    answerOptionsDiv.appendChild(button);
+                });
+                document.getElementById("current-question").textContent = currentQuestionIndex + 1;
+                document.getElementById("total-questions").textContent = questions.length;
+                document.getElementById("feedback").textContent = '';
+            } else {
+                document.querySelector(".question-container").innerHTML = `<h2>Je hebt alle vragen beantwoord! Fout: ${incorrectCount}</h2>`;
+            }
+        }
+
+        function checkAnswer(selectedAnswer, button) {
+            const q = questions[currentQuestionIndex];
+            if (selectedAnswer === q.correct) {
+                document.getElementById("feedback").textContent = "Correct!";
+                document.getElementById("feedback").className = "feedback correct";
+            } else {
+                document.getElementById("feedback").textContent = `Fout! Het juiste antwoord was "${q.correct}".`;
+                document.getElementById("feedback").className = "feedback incorrect";
+                incorrectCount++;
+                document.getElementById("incorrect-count").textContent = incorrectCount;
+            }
+            Array.from(document.querySelectorAll(".answer-options button")).forEach(btn => {
+                btn.disabled = true;
+                if (btn.textContent === q.correct) {
+                    btn.style.backgroundColor = "#d4edda";
+                    btn.style.borderColor = "#28a745";
+                } else if (btn === button) {
+                    btn.style.backgroundColor = "#f8d7da";
+                    btn.style.borderColor = "#dc3545";
+                }
+            });
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                loadQuestion();
+            }, 2000);
+        }
+
+        document.addEventListener("DOMContentLoaded", loadQuestion);
+    </script>
+</body>
+</html>

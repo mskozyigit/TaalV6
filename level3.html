@@ -29,23 +29,39 @@
             align-items: center;
         }
         .home-button {
-            font-size: 2.5em; /* Daha büyük ev ikonu */
+            font-size: 3em; /* Daha büyük ev ikonu */
             text-decoration: none;
             color: #dc3545; /* Duolingo kırmızısı */
-            margin-right: 15px;
+            margin-right: 20px;
             line-height: 1;
+            padding: 5px;
+            border-radius: 10px;
+            background-color: #ffe0e0; /* Hafif arka plan */
+            box-shadow: 0 3px 0 #c82333;
+            transition: all 0.1s ease;
+        }
+        .home-button:hover {
+            transform: translateY(1px);
+            box-shadow: 0 2px 0 #c82333;
+        }
+        .home-button:active {
+            transform: translateY(3px);
+            box-shadow: 0 0 0 #c82333;
         }
         .back-button {
             padding: 10px 15px;
-            font-size: 1em;
+            font-size: 1.5em; /* Daha büyük geri butonu */
             cursor: pointer;
             background-color: #6c757d;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             text-decoration: none;
             box-shadow: 0 3px 0 #545b62;
             transition: all 0.1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .back-button:hover {
             background-color: #5a6268;
@@ -60,39 +76,39 @@
             color: #dc3545; /* Başlık rengi */
         }
         .button-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Standart buton genişliği */
+            display: flex;
+            flex-direction: column; /* Tek sütun */
             gap: 20px;
             width: 100%;
-            max-width: 800px; /* İçeriği ortalamak için */
-            justify-content: center; /* Butonları ortalamak için */
+            max-width: 500px; /* Buton genişliği ile aynı */
+            align-items: center; /* Butonları ortalamak için */
         }
         .action-button {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 15px 30px;
-            width: 250px; /* Standart genişlik */
-            height: 70px; /* Standart yükseklik */
-            font-size: 1.5em;
+            padding: 30px 60px;
+            width: 500px; /* Standart genişlik */
+            height: 140px; /* Standart yükseklik */
+            font-size: 3em;
+            font-weight: bold; /* Kalın yazı */
             cursor: pointer;
             background-color: #dc3545;
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 15px;
             text-align: center;
             text-decoration: none;
-            box-shadow: 0 5px 0 #c82333; /* 3D efekti için gölge */
+            box-shadow: 0 8px 0 #c82333;
             transition: all 0.1s ease;
-            margin: auto; /* Butonları kendi içinde ortalamak için */
         }
         .action-button:hover {
             background-color: #c82333;
-            transform: translateY(2px);
-            box-shadow: 0 3px 0 #bd2130;
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 #bd2130;
         }
         .action-button:active {
-            transform: translateY(5px);
+            transform: translateY(8px);
             box-shadow: 0 0 0 #bd2130;
         }
     </style>
@@ -101,18 +117,18 @@
     <div class="header">
         <div class="nav-buttons">
             <a href="index.html" class="home-button">🏠</a>
-            <button onclick="history.back()" class="back-button">Terug</button>
+            <button onclick="history.back()" class="back-button">&#8592;</button> <!-- Geri oku -->
         </div>
         <h1>Gevorderd Niveau (B2 en hoger)</h1>
     </div>
 
     <div class="button-container">
-        <button class="action-button">Actie 1</button>
-        <button class="action-button">Actie 2</button>
-        <button class="action-button">Actie 3</button>
-        <button class="action-button">Actie 4</button>
-        <button class="action-button">Actie 5</button>
-        <button class="action-button">Actie 6</button>
+        <button class="action-button" onclick="location.href='level3_action1.html'">Actie 1</button>
+        <button class="action-button" onclick="location.href='level3_action2.html'">Actie 2</button>
+        <button class="action-button" onclick="location.href='level3_action3.html'">Actie 3</button>
+        <button class="action-button" onclick="location.href='level3_action4.html'">Actie 4</button>
+        <button class="action-button" onclick="location.href='level3_action5.html'">Actie 5</button>
+        <button class="action-button" onclick="location.href='level3_action6.html'">Actie 6</button>
     </div>
 </body>
 </html>
