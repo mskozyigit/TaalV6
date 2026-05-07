@@ -6,6 +6,10 @@
     <title>Gevorderd Niveau (B2 en hoger)</title>
     <style>
         body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
             font-family: sans-serif;
             background-color: #f0f0f0;
             color: #333;
@@ -13,49 +17,91 @@
             padding: 20px;
         }
         .header {
+            width: 100%;
+            max-width: 800px; /* İçeriği ortalamak için */
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 30px;
         }
-        .header a {
-            text-decoration: none;
-            color: #007bff;
-            font-size: 1.2em;
-            margin-right: 15px;
+        .nav-buttons {
+            display: flex;
+            align-items: center;
         }
         .home-button {
-            font-size: 2em; /* Duolingo benzeri ev ikonu için */
+            font-size: 2.5em; /* Daha büyük ev ikonu */
             text-decoration: none;
-            color: #007bff;
+            color: #dc3545; /* Duolingo kırmızısı */
+            margin-right: 15px;
+            line-height: 1;
+        }
+        .back-button {
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            box-shadow: 0 3px 0 #545b62;
+            transition: all 0.1s ease;
+        }
+        .back-button:hover {
+            background-color: #5a6268;
+            transform: translateY(1px);
+            box-shadow: 0 2px 0 #494f54;
+        }
+        .back-button:active {
+            transform: translateY(3px);
+            box-shadow: 0 0 0 #494f54;
+        }
+        h1 {
+            color: #dc3545; /* Başlık rengi */
         }
         .button-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Standart buton genişliği */
             gap: 20px;
+            width: 100%;
+            max-width: 800px; /* İçeriği ortalamak için */
+            justify-content: center; /* Butonları ortalamak için */
         }
         .action-button {
-            display: block;
-            padding: 20px;
-            font-size: 1.2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 30px;
+            width: 250px; /* Standart genişlik */
+            height: 70px; /* Standart yükseklik */
+            font-size: 1.5em;
             cursor: pointer;
             background-color: #dc3545;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             text-align: center;
             text-decoration: none;
+            box-shadow: 0 5px 0 #c82333; /* 3D efekti için gölge */
+            transition: all 0.1s ease;
+            margin: auto; /* Butonları kendi içinde ortalamak için */
         }
         .action-button:hover {
             background-color: #c82333;
+            transform: translateY(2px);
+            box-shadow: 0 3px 0 #bd2130;
+        }
+        .action-button:active {
+            transform: translateY(5px);
+            box-shadow: 0 0 0 #bd2130;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <div>
+        <div class="nav-buttons">
             <a href="index.html" class="home-button">🏠</a>
-            <button onclick="history.back()">Terug</button>
+            <button onclick="history.back()" class="back-button">Terug</button>
         </div>
         <h1>Gevorderd Niveau (B2 en hoger)</h1>
     </div>
