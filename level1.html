@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner Niveau (A1/A2)</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .header a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1.2em;
+            margin-right: 15px;
+        }
+        .home-button {
+            font-size: 2em; /* Duolingo benzeri ev ikonu için */
+            text-decoration: none;
+            color: #007bff;
+        }
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .action-button {
+            display: block;
+            padding: 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .action-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <a href="index.html" class="home-button">🏠</a>
+            <button onclick="history.back()">Terug</button>
+        </div>
+        <h1>Beginner Niveau (A1/A2)</h1>
+    </div>
+
+    <div class="button-container">
+        <button class="action-button">Actie 1</button>
+        <button class="action-button">Actie 2</button>
+        <button class="action-button">Actie 3</button>
+        <button class="action-button">Actie 4</button>
+        <button class="action-button">Actie 5</button>
+        <button class="action-button">Actie 6</button>
+    </div>
+</body>
+</html>
