@@ -23,22 +23,44 @@
             font-size: 3em;
             display: none; /* Hidden by default */
         }
+        #level-selection {
+            display: none; /* Hidden by default */
+            text-align: center;
+        }
+        .level-button {
+            display: block;
+            margin: 10px auto;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .level-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <div id="loading-screen">
         Yükleniyor...
     </div>
-    <div id="hello-world">
-        Hello World!
+    <div id="level-selection">
+        <h1>Seviye Seçin</h1>
+        <button class="level-button" onclick="alert('Seviye 1 seçildi!')">Seviye 1</button>
+        <button class="level-button" onclick="alert('Seviye 2 seçildi!')">Seviye 2</button>
+        <button class="level-button" onclick="alert('Seviye 3 seçildi!')">Seviye 3</button>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             setTimeout(function() {
                 document.getElementById("loading-screen").style.display = "none";
-                document.getElementById("hello-world").style.display = "block";
-            }, 3000); // 3 saniye sonra "Hello World!" göster
+                document.getElementById("level-selection").style.display = "block";
+            }, 3000); // 3 saniye sonra seviye seçimini göster
         });
     </script>
 </body>
