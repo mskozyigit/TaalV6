@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pages Loading Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        #loading-screen {
+            font-size: 2em;
+            text-align: center;
+        }
+        #hello-world {
+            font-size: 3em;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+    <div id="loading-screen">
+        Yükleniyor...
+    </div>
+    <div id="hello-world">
+        Hello World!
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById("loading-screen").style.display = "none";
+                document.getElementById("hello-world").style.display = "block";
+            }, 3000); // 3 saniye sonra "Hello World!" göster
+        });
+    </script>
+</body>
+</html>
